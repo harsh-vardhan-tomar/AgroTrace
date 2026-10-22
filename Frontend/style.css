@@ -1,0 +1,54 @@
+:root {
+  --ink: #12261f;
+  --paper: #f5f2ea;
+  --card: #fbfaf6;
+  --line: #e1dccd;
+  --green: #1f7a57;
+  --amber: #e8a838;
+  --red: #d9553f;
+  --muted: #5d6b64;
+}
+* { box-sizing: border-box; }
+body { margin: 0; font-family: system-ui, "Segoe UI", sans-serif; background: var(--paper); color: var(--ink); }
+
+header { background: var(--ink); color: var(--paper); padding: 14px 20px; display: flex; justify-content: space-between; align-items: center; }
+header h1 { margin: 0; font-size: 20px; }
+header h1 span { color: var(--amber); }
+
+main { max-width: 1000px; margin: 0 auto; padding: 20px 16px; }
+nav { display: flex; gap: 8px; margin-bottom: 18px; }
+nav button { padding: 9px 16px; border: 1px solid var(--ink); background: transparent; border-radius: 8px; font-weight: 700; cursor: pointer; }
+nav button.active { background: var(--ink); color: var(--paper); }
+.hidden { display: none; }
+
+/* Dashboard cards */
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 14px; }
+.card { background: var(--card); border: 1px solid var(--line); border-left: 5px solid var(--green); border-radius: 12px; padding: 16px; }
+.card.medium { border-left-color: var(--amber); }
+.card.high { border-left-color: var(--red); }
+.card h3 { margin: 0 0 4px; }
+.muted { color: var(--muted); font-size: 14px; margin: 2px 0 10px; }
+.badge { float: right; font-size: 12px; font-weight: 700; padding: 3px 10px; border-radius: 99px; background: #d8eee3; color: var(--green); }
+.medium .badge { background: #fbecc8; color: #8a5a00; }
+.high .badge { background: #f6dcd6; color: #9b3524; }
+.bar { height: 8px; background: #e8e4d6; border-radius: 99px; overflow: hidden; margin: 8px 0; }
+.bar div { height: 100%; background: var(--green); }
+.medium .bar div { background: var(--amber); }
+.high .bar div { background: var(--red); }
+.small { font-size: 13px; color: var(--muted); display: flex; justify-content: space-between; margin-bottom: 10px; }
+.btn { padding: 9px 14px; border: 0; border-radius: 8px; background: var(--ink); color: var(--paper); font-weight: 700; cursor: pointer; }
+
+/* Form */
+form { max-width: 480px; background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 20px; }
+label { display: block; font-weight: 700; font-size: 14px; margin-top: 12px; }
+input, select, textarea { width: 100%; margin-top: 5px; padding: 10px; border: 1px solid #cfc9b6; border-radius: 8px; font: inherit; }
+form .btn { width: 100%; margin-top: 16px; padding: 12px; }
+
+/* Result */
+.result { max-width: 480px; background: var(--ink); color: var(--paper); border-radius: 14px; padding: 20px; }
+.result h2 { color: var(--amber); margin: 0 0 10px; }
+.result p { margin: 6px 0; }
+.note { margin-top: 14px; font-size: 12px; opacity: 0.8; }
+.btn.back { margin-top: 14px; background: var(--amber); color: var(--ink); }
+
+footer { text-align: center; font-size: 12px; color: var(--muted); padding: 20px; }

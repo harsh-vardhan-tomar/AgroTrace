@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AgroTrace</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Agro<span>Trace</span></h1>
+    <small id="net">Online</small>
+  </header>
+
+  <main>
+    <nav>
+      <button id="tabDash" class="active" onclick="show('dash')">Dashboard</button>
+      <button id="tabDeclare" onclick="show('declare')">Declare surplus</button>
+    </nav>
+
+    <!-- Dashboard -->
+    <section id="dash">
+      <div class="grid" id="cards"></div>
+    </section>
+
+    <!-- Form -->
+    <section id="declare" class="hidden">
+      <form id="form">
+        <h2 style="margin-top:0">Declare surplus</h2>
+        <label>Food item <input id="crop" required /></label>
+        <label>Quantity (kg) <input id="qty" type="number" min="1" required /></label>
+        <label>Pickup location <input id="loc" required /></label>
+        <label>Notes <textarea id="notes" rows="3"></textarea></label>
+        <button class="btn">Find food bank</button>
+      </form>
+    </section>
+
+    <!-- Result -->
+    <section id="result" class="hidden">
+      <div class="result">
+        <h2>Match found</h2>
+        <p><strong id="rNgo"></strong></p>
+        <p id="rDist"></p>
+        <p id="rSlot"></p>
+        <p class="note">Disclaimer: AgroTrace supports decisions only. The receiver must do the final food-safety check.</p>
+        <button class="btn back" onclick="show('dash')">Back to dashboard</button>
+      </div>
+    </section>
+  </main>
+
+  <footer>AgroTrace · No chemical or lab testing is performed.</footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
