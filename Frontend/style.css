@@ -21,6 +21,14 @@ nav button { padding: 9px 16px; border: 1px solid var(--ink); background: transp
 nav button.active { background: var(--ink); color: var(--paper); }
 .hidden { display: none; }
 
+/* Alert banner */
+.alert { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; background: #f6dcd6; border: 1px solid var(--red); border-left: 6px solid var(--red); color: #7a2a1b; border-radius: 12px; padding: 12px 16px; margin-bottom: 16px; }
+.alert.watch { background: #fbecc8; border-color: var(--amber); color: #6b4700; }
+.alert strong { display: block; font-size: 15px; }
+.alert span { font-size: 13px; }
+.alert .btn { background: var(--red); color: #fff; }
+.alert.watch .btn { background: var(--amber); color: var(--ink); }
+
 /* Dashboard cards */
 .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 14px; }
 .card { background: var(--card); border: 1px solid var(--line); border-left: 5px solid var(--green); border-radius: 12px; padding: 16px; }

@@ -22,6 +22,29 @@ function renderCards() {
     </div>`).join("");
 }
 
+// Banner at the top: red if any batch is high risk, amber if only "Watch" batches
+function renderAlert() {
+  const el = document.getElementById("alert");
+  const high  = batches.filter(b => b.risk >= 70).sort((a, b) => b.risk - a.risk);
+  const watch = batches.filter(b => b.risk >= 40 && b.risk < 70);
+
+  if (!high.length && !watch.length) { el.classList.add("hidden"); return; }
+
+  const urgent = high.length > 0;
+  const list = urgent ? high : watch;
+  const top = list[0];
+  const names = list.map(b => `${b.crop} (${b.left} left)`).join(", ");
+
+  el.className = "alert" + (urgent ? "" : " watch");
+  el.innerHTML = `
+    <div>
+      <strong>${urgent ? "⚠ " + high.length + " batch" + (high.length > 1 ? "es need" : " needs") + " pickup soon"
+                       : watch.length + " batch" + (watch.length > 1 ? "es" : "") + " to watch"}</strong>
+      <span>${names}</span>
+    </div>
+    <button class="btn" onclick="declare('${top.id}')">Declare ${top.crop} now</button>`;
+}
+
 function show(name) {
   ["dash", "declare", "result"].forEach(id =>
     document.getElementById(id).classList.toggle("hidden", id !== name));
@@ -96,3 +119,4 @@ window.addEventListener("online", net);
 window.addEventListener("offline", net);
 
 renderCards();
+renderAlert();
